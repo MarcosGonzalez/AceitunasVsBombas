@@ -52,11 +52,11 @@ class Juego(Base):
         """crea las variables de la clase"""
         self.fondo = pilas.fondos.Espacio()
         self.bombas = []
-        self.ganaste = pilas.sonidos.cargar("/home/usuario/Escritorio/AceitunasVsBombas/shrek_trumpets.mp3")
-        self.perdiste = pilas.sonidos.cargar("/home/usuario/Escritorio/AceitunasVsBombas/perdedor.mp3")
+        self.ganaste = pilas.sonidos.cargar("shrek_trumpets.mp3")
+        self.perdiste = pilas.sonidos.cargar("perdedor.mp3")
         self.puntaje=pilas.actores.Puntaje(self.puntos, x=280, y=200)
         self.puntaje.color = pilas.colores.blanco
-        self.musica = pilas.sonidos.cargar("/home/usuario/Escritorio/AceitunasVsBombas/hola.wav")
+        self.musica = pilas.sonidos.cargar("hola.wav")
         self.musica.reproducir()
         self.moneda = pilas.actores.Moneda()
         x = random.randint(-320, 320)
@@ -77,7 +77,7 @@ class Juego(Base):
                 self.bombas[i].eliminar()
             self.ganaste.reproducir()
             protagonista.reir()
-            fondo = pilas.fondos.Fondo("/home/usuario/Escritorio/AceitunasVsBombas/bigstock_You_Win_Road_Sign_4335631.jpg")
+            fondo = pilas.fondos.Fondo("bigstock_You_Win_Road_Sign_4335631.jpg")
             fondo.escala = 1.60 
             texto=pilas.actores.Texto("GANASTE!!")
             texto.y=70
@@ -149,7 +149,7 @@ class Juego(Base):
                 texto3=pilas.actores.Texto("Tu puntaje: " + self.puntaje.obtener_texto())
                 texto3.y=130
                 texto3.color=pilas.colores.rojo
-                fondo = pilas.fondos.Fondo("/home/usuario/Escritorio/AceitunasVsBombas/loser.png")
+                fondo = pilas.fondos.Fondo("loser.png")
                 fondo.escala = 1.30
                 self.musica.detener()
                 def iniciar_juego_de_nuevo(): #Inicia de nuevo el juego
